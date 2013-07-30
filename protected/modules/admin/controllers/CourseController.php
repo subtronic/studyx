@@ -103,9 +103,22 @@ class CourseController extends Controller
 	{
 		if(Yii::app()->request->isPostRequest)
 		{
-			// we only allow deletion via POST request
+			
+            $ratings=Rating::model()->findAll('id_course=:idc',array(':idc'=>$id));
+            foreach ($ratings as $rating) {
+                $rating->delete();
+            }
+            $points=Point::model()->findAll('id_course=:idc',array(':idc'=>$id));
+            foreach ($points as $point) {
+                $point->delete();
+            }
+            $themes=Theme::model()->findAll('id_course=:idc',array(':idc'=>$id));
+            foreach ($themes as $theme) {
+                $theme->delete();
+            }
+            // we only allow deletion via POST request
 			$this->loadModel($id)->delete();
-
+            
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			if(!isset($_GET['ajax']))
 				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));

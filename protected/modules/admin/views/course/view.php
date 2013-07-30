@@ -37,5 +37,11 @@ $this->menu=array(
             'value'=>CHtml::link($model->users->realName,array("user/view?id=".$model->users->id)),
          ),
 		'default_point',
+        'allowAllView'=>array
+        (
+            'name'=>'allowAllView',
+            'type'=>'raw',
+            'value'=>($model->allowAllView==1?"Да":"Нет"),
+        ),
 	),
 )); ?>

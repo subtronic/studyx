@@ -6,10 +6,10 @@
 	</div><!-- content -->
 </div>
 <div class="span-5 last">
-	<div id="sidebar">
+	<div id="sidebar" class="well">
 	<?php
 		$this->beginWidget('zii.widgets.CPortlet', array(
-			'title'=>'Operations',
+			'title'=>'Действия',
 		));
 		$this->widget('zii.widgets.CMenu', array(
 			'items'=>$this->menu,

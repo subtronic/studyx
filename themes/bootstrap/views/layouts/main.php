@@ -9,7 +9,7 @@
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 
-	<?php Yii::app()->bootstrap->register(); ?>
+	<?php //Yii::app()->bootstrap->register(); ?>
 </head>
 
 <body>
@@ -22,7 +22,7 @@
                 array('label'=>'Главная', 'url'=>array('/site/index')),
                 array('label'=>'О проекте', 'url'=>array('/site/page', 'view'=>'about')),
                 array('label'=>'Контакты', 'url'=>array('/site/contact')),
-                array('label'=>'Мои курсы', 'url'=>array('/group/index'),'visible'=>Yii::app()->user->checkAccess('user')),
+                array('label'=>'Мои курсы', 'url'=>array('/course/index'),'visible'=>Yii::app()->user->checkAccess('user')),
                 array('label'=>'Админка', 'url'=>array('/admin/'),'visible'=>Yii::app()->user->checkAccess('admin')),
                 array('label'=>'Войти', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
                 array('label'=>'Выйти ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)

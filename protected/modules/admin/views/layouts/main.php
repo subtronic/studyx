@@ -9,7 +9,7 @@
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 
-	<?php Yii::app()->bootstrap->register(); ?>
+	<?php //Yii::app()->bootstrap->register(); ?>
 </head>
 
 <body>

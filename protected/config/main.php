@@ -1,5 +1,6 @@
 <?php
 Yii::setPathOfAlias('bootstrap', dirname(__FILE__).'/../extensions/bootstrap');
+Yii::setPathOfAlias('chartjs', dirname(__FILE__).'/../extensions/yii-chartjs');
 // uncomment the following to define a path alias
 // Yii::setPathOfAlias('local','path/to/local-folder');
 
@@ -10,14 +11,16 @@ return array(
 	'name'=>'Мониторинг студентов',
     'language'=>'ru',
     'theme'=>'bootstrap',
-
+    
+   
 	// preloading 'log' component
-	'preload'=>array('log'),
+	'preload'=>array('log','efontawesome','bootstrap','chartjs'),
 
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+        'ext.EDataTables.*',
 	),
 
 	'modules'=>array(
@@ -60,11 +63,19 @@ return array(
             'class' => 'ext.yexcel.Yexcel'
         ),
         
-        'bootstrap'=>array(
-            'class'=>'bootstrap.components.Bootstrap',
+        'efontawesome' => array(
+                'class' => 'ext.EFontAwesome.components.EFontAwesome',
+        ),
+        
+        'bootstrap' => array(
+	       'class' => 'ext.bootstrap.components.Bootstrap',
+	       'responsiveCss' => true,
         ),
 		// uncomment the following to enable URLs in path-format
-		
+		'chartjs' => array(
+            'class' => 'chartjs.components.ChartJs'
+        ),
+        
 		'urlManager'=>array(
 			'urlFormat'=>'path',
 			'rules'=>array(

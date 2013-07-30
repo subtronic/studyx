@@ -7,10 +7,10 @@
         </div><!-- content -->
     </div>
     <div class="span3">
-        <div id="sidebar">
+        <div id="sidebar" class="well">
         <?php
             $this->beginWidget('zii.widgets.CPortlet', array(
-                'title'=>'Operations',
+                'title'=>'Действия',
             ));
             $this->widget('bootstrap.widgets.TbMenu', array(
                 'items'=>$this->menu,

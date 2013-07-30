@@ -3,13 +3,13 @@
 /* @var $model ContactForm */
 /* @var $form TbActiveForm */
 
-$this->pageTitle=Yii::app()->name . ' - Contact Us';
+$this->pageTitle=Yii::app()->name . ' - Обратная связь';
 $this->breadcrumbs=array(
-	'Contact',
+	'Обратная связь',
 );
 ?>
 
-<h1>Contact Us</h1>
+<h1>Напишите Нам!</h1>
 
 <?php if(Yii::app()->user->hasFlash('contact')): ?>
 
@@ -20,7 +20,7 @@ $this->breadcrumbs=array(
 <?php else: ?>
 
 <p>
-If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
+Если Вы хотите связаться с разработчиком, то пожалуйста заполните форму ниже. Спасибо!
 </p>
 
 <div class="form">
@@ -34,21 +34,21 @@ If you have business inquiries or other questions, please fill out the following
 	),
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Поля с <span class="required">*</span> обязательны.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
-    <?php echo $form->textFieldRow($model,'name'); ?>
+    <?php echo $form->textFieldRow($model,'name',array('placeholder'=>'Сидоров Сергей Викторович')); ?>
 
-    <?php echo $form->textFieldRow($model,'email'); ?>
+    <?php echo $form->textFieldRow($model,'email',array('placeholder'=>'somemail@gmail.com')); ?>
 
-    <?php echo $form->textFieldRow($model,'subject',array('size'=>60,'maxlength'=>128)); ?>
+    <?php echo $form->textFieldRow($model,'subject',array('size'=>60,'maxlength'=>128,'placeholder'=>'Благодарность')); ?>
 
-    <?php echo $form->textAreaRow($model,'body',array('rows'=>6, 'class'=>'span8')); ?>
+    <?php echo $form->textAreaRow($model,'body',array('rows'=>6, 'class'=>'span8','placeholder'=>'Введите сюда текст письма...')); ?>
 
 	<?php if(CCaptcha::checkRequirements()): ?>
 		<?php echo $form->captchaRow($model,'verifyCode',array(
-            'hint'=>'Please enter the letters as they are shown in the image above.<br/>Letters are not case-sensitive.',
+            'hint'=>'Пожалуйста, введите в поле букву, которые Вы видите на картинке выше.<br/>Буквы не чувствительны к регистру..',
         )); ?>
 	<?php endif; ?>
 
@@ -56,7 +56,7 @@ If you have business inquiries or other questions, please fill out the following
 		<?php $this->widget('bootstrap.widgets.TbButton',array(
             'buttonType'=>'submit',
             'type'=>'primary',
-            'label'=>'Submit',
+            'label'=>'Отправить',
         )); ?>
 	</div>
 

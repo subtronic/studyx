@@ -9,6 +9,10 @@
  * @property integer $subject
  * @property integer $teacher
  * @property integer $default_point
+ * @property integer $allowAllView
+ * @property integer $min_rating
+ * @property integer $med_rating
+ * @property integer $max_rating
  */
 class Course extends CActiveRecord
 {
@@ -38,11 +42,11 @@ class Course extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('group_id, subject, teacher', 'required'),
-			array('group_id, subject, teacher, default_point', 'numerical', 'integerOnly'=>true),
+			array('group_id, subject, teacher, allowAllView', 'required'),
+			array('group_id, subject, teacher, default_point,allowAllView,min_rating, med_rating, max_rating', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, group_id, subject, teacher, default_point', 'safe', 'on'=>'search'),
+			array('id, group_id, subject, teacher, default_point, allowAllView,min_rating, med_rating, max_rating', 'safe', 'on'=>'search, createProgramPoint'),
 		);
 	}
 
@@ -57,6 +61,7 @@ class Course extends CActiveRecord
             'users'=>array(self::BELONGS_TO,'User','teacher'),
             'subjects'=>array(self::BELONGS_TO,'Subject','subject'),
             'groups'=>array(self::BELONGS_TO,'Group','group_id'),
+            'themes'=>array(self::HAS_MANY,'Theme','id'),
         
 		);
 	}
@@ -72,6 +77,10 @@ class Course extends CActiveRecord
 			'subject' => 'Дисциплина',
 			'teacher' => 'Преподаватель',
 			'default_point' => 'Балл за посещение',
+            'allowAllView'=>'Разрешить просмотр всем студентам группы',
+			'min_rating' => 'Проходной балл',
+			'med_rating' => 'Количество баллов на оценку хорошо',
+			'max_rating' => 'Количество баллов на оценку отлично',
 		);
 	}
 
@@ -91,6 +100,10 @@ class Course extends CActiveRecord
 		$criteria->compare('subject',$this->subject);
 		$criteria->compare('teacher',$this->teacher);
 		$criteria->compare('default_point',$this->default_point);
+        $criteria->compare('allowAllView',$this->allowAllView);
+        $criteria->compare('min_rating',$this->min_rating);
+		$criteria->compare('med_rating',$this->med_rating);
+		$criteria->compare('max_rating',$this->max_rating);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

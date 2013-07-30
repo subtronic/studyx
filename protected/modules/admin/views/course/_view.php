@@ -18,7 +18,9 @@
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('default_point')); ?>:</b>
 	<?php echo CHtml::encode($data->default_point); ?>
-	<br />
+    
+    	<b><?php echo CHtml::encode($data->getAttributeLabel('allowAllView')); ?>:</b>
+	<?php echo CHtml::encode($data->allowAllView); ?>
 
 
 </div>

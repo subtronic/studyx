@@ -9,7 +9,7 @@
 	'enableAjaxValidation'=>false,
 )); ?>\n"; ?>
 
-	<p class="help-block">Поля с <span class="required">*</span> обязательны.</p>
+	<p class="help-block">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo "<?php echo \$form->errorSummary(\$model); ?>\n"; ?>
 
@@ -28,7 +28,7 @@ foreach($this->tableSchema->columns as $column)
 		<?php echo "<?php \$this->widget('bootstrap.widgets.TbButton', array(
 			'buttonType'=>'submit',
 			'type'=>'primary',
-			'label'=>\$model->isNewRecord ? 'Создать' : 'Сохранить',
+			'label'=>\$model->isNewRecord ? 'Create' : 'Save',
 		)); ?>\n"; ?>
 	</div>
 

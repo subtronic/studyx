@@ -132,7 +132,7 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 	/**
 	 * Lists all models.
 	 */
-	public function actionAdmin()
+	public function actionIndex()
 	{
 		$dataProvider=new CActiveDataProvider('<?php echo $this->modelClass; ?>');
 		$this->render('index',array(
@@ -143,7 +143,7 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 	/**
 	 * Manages all models.
 	 */
-	public function actionIndex()
+	public function actionAdmin()
 	{
 		$model=new <?php echo $this->modelClass; ?>('search');
 		$model->unsetAttributes();  // clear any default values

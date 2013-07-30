@@ -20,7 +20,9 @@
     echo $form->dropDownList($model,'teacher',User::allTeachers(),array('class'=>'span5'));?>
 
 	<?php echo $form->textFieldRow($model,'default_point',array('class'=>'span5')); ?>
-
+    <?php 
+    echo $form->labelEx($model,'allowAllView');
+    echo $form->dropDownList($model,'allowAllView',array('1'=>'Да','0'=>'Нет'));?>
 	<div class="form-actions">
 		<?php $this->widget('bootstrap.widgets.TbButton', array(
 			'buttonType'=>'submit',

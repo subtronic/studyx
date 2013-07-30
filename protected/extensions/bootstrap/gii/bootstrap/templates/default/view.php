@@ -15,14 +15,15 @@ echo "\$this->breadcrumbs=array(
 ?>
 
 $this->menu=array(
-	array('label'=>'Спиоск <?php echo $this->modelClass; ?>','url'=>array('index'),'icon'=>'list'),
-	array('label'=>'Создать <?php echo $this->modelClass; ?>','url'=>array('create'),'icon'=>'plus'),
-	array('label'=>'Изменить <?php echo $this->modelClass; ?>','url'=>array('update','id'=>$model-><?php echo $this->tableSchema->primaryKey; ?>),'icon'=>'pencil'),
-	array('label'=>'Удалить <?php echo $this->modelClass; ?>','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model-><?php echo $this->tableSchema->primaryKey; ?>),'confirm'=>'Вы действительно хотите удалить выбранный элеменет?'),'icon'=>'trash'),
+	array('label'=>'List <?php echo $this->modelClass; ?>','url'=>array('index')),
+	array('label'=>'Create <?php echo $this->modelClass; ?>','url'=>array('create')),
+	array('label'=>'Update <?php echo $this->modelClass; ?>','url'=>array('update','id'=>$model-><?php echo $this->tableSchema->primaryKey; ?>)),
+	array('label'=>'Delete <?php echo $this->modelClass; ?>','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model-><?php echo $this->tableSchema->primaryKey; ?>),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Manage <?php echo $this->modelClass; ?>','url'=>array('admin')),
 );
 ?>
 
-<h3>Просмотр <?php echo $this->modelClass." #<?php echo \$model->{$this->tableSchema->primaryKey}; ?>"; ?></h3>
+<h1>View <?php echo $this->modelClass." #<?php echo \$model->{$this->tableSchema->primaryKey}; ?>"; ?></h1>
 
 <?php echo "<?php"; ?> $this->widget('bootstrap.widgets.TbDetailView',array(
 	'data'=>$model,

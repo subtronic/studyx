@@ -66,6 +66,13 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
             'filter'=>User::allTeachers(),
         ),
 		'default_point',
+        'allowAllView'=>array
+        (
+            'name'=>'allowAllView',
+            'value'=>'($data->allowAllView==1?"Да":"Нет")',
+            'header'=>'Права на просмотр',
+            'filter'=>array('1'=>'Да','0'=>'Нет'),
+        ),
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
 		),
